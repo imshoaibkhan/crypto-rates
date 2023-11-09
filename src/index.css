@@ -1,0 +1,359 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap");
+
+/* search bar  */
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+:root {
+  --rad: 0.7rem;
+  --dur: 0.3s;
+  --color-dark: #130f40;
+  --color-light: #fff;
+
+  --font-fam: "Lato", sans-serif;
+  --height: 3rem;
+  --btn-width: 6rem;
+  --bez: cubic-bezier(0, 0, 0.43, 1.49);
+}
+
+body {
+  background: var(--color-dark);
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+}
+html {
+  box-sizing: border-box;
+  height: 100%;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+.top-search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+form {
+  width: 30rem;
+  background: var(--color-brand);
+  border-radius: var(--rad);
+  padding: 2rem 0 5rem;
+}
+input,
+button {
+  height: var(--height);
+  font-family: var(--font-fam);
+  border: 0;
+  color: var(--color-dark);
+}
+
+input[type="search"] {
+  outline: 0;
+  width: 100%;
+  background: var(--color-light);
+  font-size: 1.5rem;
+  padding: 1rem 1.6rem;
+  border-radius: var(--rad);
+  appearance: none;
+  transition: all var(--dur) var(--bez);
+  transition-property: width, border-radius;
+  z-index: 1;
+  position: relative;
+}
+
+button {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: var(--btn-width);
+  font-weight: bold;
+  background: var(--color-brand);
+  border-radius: 0 var(--rad) var(--rad) 0;
+}
+input:not(:placeholder-shown) {
+  border-radius: var(--rad) 0 0 var(--rad);
+  width: 100%;
+  + button {
+    display: block;
+  }
+}
+label {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0;
+  border: 0;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+
+/* content  */
+
+.main-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: var(--color-light);
+}
+
+.coin-container {
+  display: flex;
+  justify-content: center;
+}
+.coin-row {
+  display: flex;
+  flex-direction: row;
+  justify-items: space-between;
+  align-items: center;
+  height: 80px;
+  border-bottom: 1px solid #d7d7d7;
+  width: 1000px;
+}
+.coin {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 1.5rem;
+  min-width: 300px;
+}
+.coin img {
+  height: 30px;
+  width: 30px;
+  margin-right: 10px;
+}
+.coin h1 {
+  font-size: 16px;
+  width: 150px;
+}
+.coin-symbol {
+  text-transform: uppercase;
+}
+.coin-data {
+  display: flex;
+  text-align: center;
+  justify-content: start;
+  width: 100%;
+  padding: 0 2.5rem;
+}
+.coin-price {
+  width: 33%;
+  margin: auto 0;
+  padding: 0 2rem;
+}
+.coin-volume {
+  width: 230px;
+}
+.coin-marketcap {
+  width: 33%;
+  padding-right: 1rem;
+  padding-left: 2rem;
+}
+.coin-percent {
+  width: 34%;
+  margin: auto 0;
+  padding: 0 1.5rem;
+}
+.red {
+  color: #f00606;
+}
+.green {
+  color: #11d811;
+}
+
+@media (max-width: 1010px) {
+  :root {
+    --rad: 0.5rem;
+    --dur: 0.3s;
+    --height: 1.5rem;
+    --btn-width: 6rem;
+  }
+
+  form {
+    width: 15rem;
+    background: var(--color-brand);
+    border-radius: var(--rad);
+    padding: 1rem 0 2.5rem;
+  }
+
+  input[type="search"] {
+    font-size: 0.9rem;
+    padding: 1rem 1.6rem;
+  }
+  input:not(:placeholder-shown) {
+    border-radius: var(--rad) 0 0 var(--rad);
+    width: 100%;
+    + button {
+      display: block;
+    }
+  }
+
+  label {
+    position: absolute;
+    clip: rect(1px, 1px, 1px, 1px);
+    padding: 0;
+    border: 0;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+  }
+
+  .coin-container {
+    display: flex;
+    justify-content: center;
+  }
+  .coin-row {
+    height: 60px;
+    width: 600px;
+  }
+  .coin {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 0.7rem;
+    min-width: 150px;
+    font-size: 12px;
+  }
+  .coin img {
+    height: 25px;
+    width: 25px;
+    margin-right: 10px;
+  }
+  .coin h1 {
+    font-size: 10px;
+    width: 75px;
+  }
+  .coin-symbol {
+    text-transform: uppercase;
+  }
+  .coin-data {
+    display: flex;
+    text-align: center;
+    justify-content: start;
+    width: 100%;
+    padding: 0 1.3rem;
+    font-size: 10px;
+  }
+  .coin-price {
+    width: 33%;
+    margin: auto 0;
+    padding: 0 1rem;
+  }
+  .coin-volume {
+    width: 115px;
+  }
+  .coin-marketcap {
+    width: 33%;
+    padding-right: 0.5rem;
+    padding-left: 1rem;
+  }
+  .coin-percent {
+    width: 34%;
+    margin: auto 0;
+    padding: 0 0.7rem;
+  }
+}
+
+@media (max-width: 630px) {
+  :root {
+    --rad: 0.5rem;
+    --dur: 0.3s;
+    --height: 1rem;
+    --btn-width: 6rem;
+  }
+
+  form {
+    width: 15rem;
+    background: var(--color-brand);
+    border-radius: var(--rad);
+    padding: 1rem 0 1.7rem;
+  }
+
+  input[type="search"] {
+    font-size: 0.9rem;
+    padding: 1rem 1rem;
+  }
+  input:not(:placeholder-shown) {
+    border-radius: var(--rad) 0 0 var(--rad);
+    width: 100%;
+    + button {
+      display: block;
+    }
+  }
+
+  label {
+    position: absolute;
+    clip: rect(1px, 1px, 1px, 1px);
+    padding: 0;
+    border: 0;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+  }
+
+  .coin-container {
+    display: flex;
+    justify-content: center;
+  }
+  .coin-row {
+    height: 60px;
+    width: 370px;
+  }
+  .coin {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 0.4rem;
+    min-width: 130px;
+    font-size: 10px;
+  }
+  .coin img {
+    height: 20px;
+    width: 20px;
+    margin-right: 10px;
+  }
+  .coin h1 {
+    font-size: 10px;
+    width: 60px;
+  }
+  .coin-symbol {
+    text-transform: uppercase;
+  }
+  .coin-data {
+    display: flex;
+    text-align: center;
+    justify-content: start;
+    width: 100%;
+    padding: 0 0.8rem;
+    font-size: 8px;
+  }
+  .coin-price {
+    width: 30%;
+    margin: auto 0;
+    padding: 0 0.7rem;
+  }
+  .coin-volume {
+    width: 115px;
+  }
+  .coin-marketcap {
+    width: 45%;
+    padding-right: 0.5rem;
+    padding-left: 0.8rem;
+  }
+  .coin-percent {
+    width: 25%;
+    margin: auto 0;
+    padding: 0 0.5rem;
+  }
+}
